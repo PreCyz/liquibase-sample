@@ -1,8 +1,7 @@
-FROM liquibase:4.29.2
+FROM liquibase:4.29.2-alpine
 USER root
 RUN lpm add mysql --global \
-    && apt-get update \
-    && apt-get install -y gettext-base
+    && apk add --no-cache gettext
 
 WORKDIR /liquibase/changelog
 
